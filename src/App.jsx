@@ -20,7 +20,7 @@ function App() {
       email: "",
       password: "",
       conformpassword: "",
-      role: { value: "", label: "" },
+      role: { },
       married: false,
       gender: "",
     },
@@ -146,12 +146,10 @@ function App() {
               control={control}
               name="role"
               rules={{
-                required: {
-                  value: true,
-                  message: "please select role",
-                },
+                required:  "please select role"
               }}
               render={({ field: { onChange, onBlur, name, value, ref } }) => {
+                console.log(errors)
                 return (
                   <Select
                     name={name}
@@ -162,13 +160,15 @@ function App() {
                     options={options}
                     getOptionLabel={(e) => e.label}
                     getOptionValue={(e) => e.value}
+                    closeMenuOnSelect={true}
                   />
                 );
               }}
             />
             <p>{errors.role?.message}</p>
           </div>
-          <label>Marital Status</label>
+          
+          <label>Marital Status <small style={{color:"gray"}}>optional</small> </label>
           <div className="sub-input">
             <input {...register("married")} type="checkbox" />
             Married
