@@ -25,7 +25,7 @@ function App() {
       gender: "",
     },
   });
-  console.log(errors)
+  //console.log(errors)
   const options = [
     { value: "admin", label: "Admin" },
     { value: "manager", label: "Manager" },
@@ -66,9 +66,9 @@ function App() {
                   message: "Please enter Mobile number",
                 },
                  validate:(value)=>{
-                  console.log(value)
+                //  console.log(value)
                   if(!value.match("^([0|+[0-9]{1,5})?([7-9][0-9]{9})$")|| !value.length>9){
-                    console.log("not valid number")
+                 //   console.log("not valid number")
                     return "please enter valid number"
                   }
                  }
@@ -87,9 +87,9 @@ function App() {
                   message: "Please enter email",
                 },
                 validate:(value)=>{
-                  console.log(value)
+                 // console.log(value)
                   if(!value.match(email_validation)){
-                    console.log("not valid email")
+                 //   console.log("not valid email")
                     return "please enter valid email"
                   }
                  }
@@ -108,9 +108,9 @@ function App() {
                   message: "Please enter password",
                 },
                 validate:(value)=>{
-                  console.log(value)
+                 // console.log(value)
                   if(!value.match(password_validation)){
-                    console.log("not valid password")
+                  //  console.log("not valid password")
                     return "please enter valid password"
                   }
                  }
@@ -149,7 +149,7 @@ function App() {
                 required:  "please select role"
               }}
               render={({ field: { onChange, onBlur, name, value, ref, required} }) => {
-                console.log(errors)
+               // console.log(errors)
                 return (
                  <div>
                    <Select required ={required}
