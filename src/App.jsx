@@ -140,7 +140,7 @@ function App() {
             />
             <p>{errors.conformpassword?.message}</p>
           </div>
-          <label>Select Your Role</label>
+          <label>Select Your Role <small style={{color:"gray"}}>optional</small></label>
           <div>
             <Controller
               control={control}
@@ -148,10 +148,11 @@ function App() {
               rules={{
                 required:  "please select role"
               }}
-              render={({ field: { onChange, onBlur, name, value, ref } }) => {
+              render={({ field: { onChange, onBlur, name, value, ref, required} }) => {
                 console.log(errors)
                 return (
-                  <Select
+                 <div>
+                   <Select required ={required}
                     name={name}
                     ref={ref}
                     onChange={(e) => onChange(e)}
@@ -162,10 +163,12 @@ function App() {
                     getOptionValue={(e) => e.value}
                     closeMenuOnSelect={true}
                   />
+                  <p>{errors.role?.message}</p>
+                 </div>
                 );
               }}
             />
-            <p>{errors.role?.message}</p>
+           
           </div>
           
           <label>Marital Status <small style={{color:"gray"}}>optional</small> </label>
